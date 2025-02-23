@@ -1,9 +1,11 @@
+import { links } from "@/config";
+
 export const navItems = [
   { name: "About", link: "#about" },
   { name: "Projects", link: "#projects" },
   { name: "Testimonials", link: "#testimonials" },
   { name: "Contact", link: "#contact" },
-];
+] as const;
 
 export const gridItems = [
   {
@@ -67,7 +69,7 @@ export const gridItems = [
     img: "",
     spareImg: "",
   },
-];
+] as const;
 
 export const projects = [
   {
@@ -77,57 +79,55 @@ export const projects = [
     img: "/p1.svg",
     iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
     link: "https://health-care-management-pied-two.vercel.app/",
+    sourceCode: "https://github.com/usmanawan7/health-care-management",
   },
   {
     id: 2,
     title: "8Returns",
     des: "8Returns is the returns platform that turns customers into loyal fans, while saving you time and money. It provide the third party service to shopify stores.",
     img: "/p2.svg",
-    iconLists: ["/ruby.svg", "/next.svg", "/tail.svg", "/ts.svg", "/c.svg"],
-    link: "/ui.yoom.com",
+    iconLists: ["/ruby.svg","/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
+    link: "https://www.8returns.com/",
+    sourceCode: "",
   },
   {
-    id: 3,
+    id: 4,
     title: "Stridy",
     des: "Stridy is building a community of volunteers who are passionate about clean cities by organising clean ups, workshops and talks.",
     img: "/stridy.png",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
-    link: "/ui.aiimg.com",
+    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
+    link: "https://stridy.com/",
+    sourceCode: "https://stridy.com/",
   },
-];
+] as const;
 
 export const testimonials = [
   {
-    quote:
-      "Collaborating with Usman was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Usman's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Usman is the ideal partner.",
+    quote: `Collaborating with ${links.ownerName} was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. ${links.ownerName}'s enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, ${links.ownerName} is the ideal partner.`,
     name: "Michael Johnson",
     title: "Director of AlphaStream Technologies",
   },
   {
-    quote:
-      "Collaborating with Usman was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Usman's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Usman is the ideal partner.",
+    quote: `Collaborating with ${links.ownerName} was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. ${links.ownerName}'s enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, ${links.ownerName} is the ideal partner.`,
     name: "Michael Johnson",
     title: "Director of AlphaStream Technologies",
   },
   {
-    quote:
-      "Collaborating with Usman was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Usman's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Usman is the ideal partner.",
+    quote: `Collaborating with ${links.ownerName} was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. ${links.ownerName}'s enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, ${links.ownerName} is the ideal partner.`,
     name: "Michael Johnson",
     title: "Director of AlphaStream Technologies",
   },
   {
-    quote:
-      "Collaborating with Usman was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Usman's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Usman is the ideal partner.",
+    quote: `Collaborating with ${links.ownerName} was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. ${links.ownerName}'s enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, ${links.ownerName} is the ideal partner.`,
     name: "Michael Johnson",
     title: "Director of AlphaStream Technologies",
   },
   {
-    quote:
-      "Collaborating with Usman was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Usman's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Usman is the ideal partner.",
+    quote: `Collaborating with ${links.ownerName} was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. ${links.ownerName}'s enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, ${links.ownerName} is the ideal partner.`,
     name: "Michael Johnson",
     title: "Director of AlphaStream Technologies",
   },
-];
+] as const;
 
 export const companies = [
   {
@@ -160,7 +160,7 @@ export const companies = [
     img: "/dock.svg",
     nameImg: "/dockerName.svg",
   },
-];
+] as const;
 
 export const workExperience = [
   {
@@ -195,13 +195,18 @@ export const workExperience = [
 
 export const socialMedia = [
   {
-    id: 1,
+    name: "GitHub",
     img: "/git.svg",
-    url: "https://github.com/usmanawan7",
+    link: "https://github.com/usmanawan7",
   },
   {
-    id: 3,
+    name: "LinkedIn",
     img: "/link.svg",
-    url: "https://www.linkedin.com/in/usmanahmadawan/",
+    link: "https://www.linkedin.com/in/usmanahmadawan/",
   },
-];
+] as const;
+
+export const techStack = {
+  stack1: ["React.js", "Next.js", "Typescript"],
+  stack2: ["Ruby on Rails", "Nest", "Node"],
+} as const;

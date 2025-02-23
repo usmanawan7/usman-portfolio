@@ -1,36 +1,32 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import type { PropsWithChildren } from "react";
+
+import { siteConfig } from "@/config";
+
+import { ThemeProvider } from "./provider";
 
 import "./globals.css";
-import { ThemeProvider } from "./provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "Usman Portfolio",
-  description: "Modern & Minimal JS Mastery Portfolio",
+export const viewport: Viewport = {
+  themeColor: "#000319",
+  colorScheme: "dark",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export const metadata: Metadata = siteConfig;
+
+const RootLayout = ({ children }: Readonly<PropsWithChildren>) => {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="icon" href="/jsm-logo.png" sizes="any" />
-      </head>
+    <html lang="en">
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider attribute="class" defaultTheme="dark" forcedTheme="dark">
           {children}
         </ThemeProvider>
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;

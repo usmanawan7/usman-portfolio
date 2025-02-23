@@ -1,21 +1,19 @@
-"use client";
-
+import { Approach } from "@/components/approach";
+import { Clients } from "@/components/clients";
+import { Experience } from "@/components/experience";
+import { Footer } from "@/components/footer";
+import { Grid } from "@/components/grid";
+import { Hero } from "@/components/hero";
+import { FloatingNav } from "@/components/ui/floating-nav";
+import { RecentProjects } from "@/components/recent-projects";
 import { navItems } from "@/data";
 
-import Hero from "@/components/Hero";
-import Grid from "@/components/Grid";
-import Footer from "@/components/Footer";
-import Clients from "@/components/Clients";
-import Approach from "@/components/Approach";
-import Experience from "@/components/Experience";
-import RecentProjects from "@/components/RecentProjects";
-import { FloatingNav } from "@/components/ui/FloatingNavbar";
-
-const Home = () => {
+const MainPage = () => {
   return (
-    <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">
-      <div className="max-w-7xl w-full">
-        <FloatingNav navItems={navItems} />
+    <main className="relative mx-auto flex flex-col items-center justify-center overflow-clip bg-black-100 px-5 sm:px-10">
+      <FloatingNav navItems={navItems} />
+
+      <div className="w-full max-w-7xl">
         <Hero />
         <Grid />
         <RecentProjects />
@@ -28,4 +26,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default MainPage;

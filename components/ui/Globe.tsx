@@ -1,10 +1,12 @@
 "use client";
+import { useThree, Object3DNode, Canvas, extend } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
 import { useEffect, useRef, useState } from "react";
 import { Color, Scene, Fog, PerspectiveCamera, Vector3 } from "three";
 import ThreeGlobe from "three-globe";
-import { useThree, Object3DNode, Canvas, extend } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+
 import countries from "@/data/globe.json";
+
 declare module "@react-three/fiber" {
   interface ThreeElements {
     threeGlobe: Object3DNode<ThreeGlobe, typeof ThreeGlobe>;
@@ -60,7 +62,7 @@ interface WorldProps {
 
 let numbersOfRings = [0];
 
-export function Globe({ globeConfig, data }: WorldProps) {
+export const Globe = ({ globeConfig, data }: WorldProps) => {
   const [globeData, setGlobeData] = useState<
     | {
         size: number;
@@ -96,6 +98,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
       _buildData();
       _buildMaterial();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [globeRef.current]);
 
   const _buildMaterial = () => {
@@ -162,6 +165,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
         });
       startAnimation();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [globeData]);
 
   const startAnimation = () => {
@@ -221,28 +225,28 @@ export function Globe({ globeConfig, data }: WorldProps) {
     return () => {
       clearInterval(interval);
     };
-  }, [globeRef.current, globeData]);
+  }, [globeData, data.length]);
 
   return (
     <>
       <threeGlobe ref={globeRef} />
     </>
   );
-}
+};
 
-export function WebGLRendererConfig() {
+export const WebGLRendererConfig = () => {
   const { gl, size } = useThree();
 
   useEffect(() => {
     gl.setPixelRatio(window.devicePixelRatio);
     gl.setSize(size.width, size.height);
     gl.setClearColor(0xffaaff, 0);
-  }, []);
+  }, [gl, size.height, size.width]);
 
   return null;
-}
+};
 
-export function World(props: WorldProps) {
+export const World = (props: WorldProps) => {
   const { globeConfig } = props;
   const scene = new Scene();
   scene.fog = new Fog(0xffffff, 400, 2000);
@@ -276,11 +280,11 @@ export function World(props: WorldProps) {
       />
     </Canvas>
   );
-}
+};
 
-export function hexToRgb(hex: string) {
+export const hexToRgb = (hex: string) => {
   var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-  hex = hex.replace(shorthandRegex, function (m, r, g, b) {
+  hex = hex.replace(shorthandRegex, (m, r, g, b) => {
     return r + r + g + g + b + b;
   });
 
@@ -292,9 +296,9 @@ export function hexToRgb(hex: string) {
         b: parseInt(result[3], 16),
       }
     : null;
-}
+};
 
-export function genRandomNumbers(min: number, max: number, count: number) {
+export const genRandomNumbers = (min: number, max: number, count: number) => {
   const arr = [];
   while (arr.length < count) {
     const r = Math.floor(Math.random() * (max - min)) + min;
@@ -302,4 +306,4 @@ export function genRandomNumbers(min: number, max: number, count: number) {
   }
 
   return arr;
-}
+};
